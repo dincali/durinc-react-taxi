@@ -1,36 +1,32 @@
-import { Database } from '@libsql/sqlite-wasm';
+import localforage from 'localforage';
 
-    let db = null;
-
-    async function initializeDB() {
-      if (db) return db;
-      db = new Database(':memory:');
-      await db.exec(`
-        CREATE TABLE IF NOT EXISTS bookings (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          name TEXT,
-          email TEXT,
-          phone TEXT,
-          date TEXT,
-          time TEXT,
-          message TEXT
-        )
-      `);
-      return db;
-    }
+    const bookingsStore = localforage.createInstance({
+      name: 'taxi_bookings'
+    });
 
     async function addBooking(booking) {
-      const database = await initializeDB();
-      await database.run(
-        'INSERT INTO bookings (name, email, phone, date, time, message) VALUES (?, ?, ?, ?, ?, ?)',
-        [booking.name, booking.email, booking.phone, booking.date ? booking.date.toISOString() : null, booking.time, booking.message]
-      );
+      const id = Date.now().toString();
+      await bookingsStore.setItem(id, booking);
     }
 
     async function getAllBookings() {
-      const database = await initializeDB();
-      const result = await database.all('SELECT * FROM bookings');
-      return result;
+      const bookings = [];
+       await bookingsStore.iterate((value, key) => {
+        bookings.push({ id: key, ...value });
+      });
+      return bookings;
     }
 
-    export { initializeDB, addBooking, getAllBookings };
+    async function deleteBooking(id) {
+      await bookingsStore.removeItem(id);
+    }
+
+    async function updateBooking(id, updatedBooking) {
+      await bookingsStore.setItem(id, updatedBooking);
+    }
+
+    async function getBooking(id) {
+      return await bookingsStore.getItem(id);
+    }
+
+    export { addBooking, getAllBookings, deleteBooking, updateBooking, getBooking };
