@@ -1,37 +1,32 @@
-import initSqlJs from 'sql.js';
+import localforage from 'localforage';
 
-let db = null;
+    const bookingsStore = localforage.createInstance({
+      name: 'taxi_bookings'
+    });
 
-async function initializeDB() {
-  if (db) return db;
-  const SQL = await initSqlJs();
-  db = new SQL.Database();
-  db.run(`
-    CREATE TABLE IF NOT EXISTS bookings (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT,
-      email TEXT,
-      phone TEXT,
-      date TEXT,
-      time TEXT,
-      message TEXT
-    )
-  `);
-  return db;
-}
+    async function addBooking(booking) {
+      const id = Date.now().toString();
+      await bookingsStore.setItem(id, booking);
+    }
 
-async function addBooking(booking) {
-  const database = await initializeDB();
-  database.run(
-    'INSERT INTO bookings (name, email, phone, date, time, message) VALUES (?, ?, ?, ?, ?, ?)',
-    [booking.name, booking.email, booking.phone, booking.date ? booking.date.toISOString() : null, booking.time, booking.message]
-  );
-}
+    async function getAllBookings() {
+      const bookings = [];
+       await bookingsStore.iterate((value, key) => {
+        bookings.push({ id: key, ...value });
+      });
+      return bookings;
+    }
 
-async function getAllBookings() {
-  const database = await initializeDB();
-  const result = database.exec('SELECT * FROM bookings');
-  return result[0] ? result[0].values : [];
-}
+    async function deleteBooking(id) {
+      await bookingsStore.removeItem(id);
+    }
 
-export { initializeDB, addBooking, getAllBookings };
+    async function updateBooking(id, updatedBooking) {
+      await bookingsStore.setItem(id, updatedBooking);
+    }
+
+    async function getBooking(id) {
+      return await bookingsStore.getItem(id);
+    }
+
+    export { addBooking, getAllBookings, deleteBooking, updateBooking, getBooking };
