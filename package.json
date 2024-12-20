@@ -1,27 +1,28 @@
 {
-      "name": "taxi-website-multipage-booking",
-      "private": true,
-      "version": "0.0.0",
-      "type": "module",
-      "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "preview": "vite preview"
-      },
-      "dependencies": {
-        "@libsql/sqlite-wasm": "^0.3.7",
-        "framer-motion": "^10.16.4",
-        "react": "^18.2.0",
-        "react-calendar": "^4.6.0",
-        "react-countup": "^6.4.2",
-        "react-dom": "^18.2.0",
-        "react-icons": "^4.10.1",
-        "react-router-dom": "^6.28.0"
-      },
-      "devDependencies": {
-        "@types/react": "^18.0.28",
-        "@types/react-dom": "^18.0.11",
-        "@vitejs/plugin-react": "^4.0.3",
-        "vite": "^4.0.0"
-      }
-    }
+  "name": "taxi-website-multipage-booking",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "framer-motion": "^10.16.4",
+    "react": "^18.2.0",
+    "react-calendar": "^4.6.0",
+    "react-countup": "^6.4.2",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-router-dom": "^6.28.0",
+    "sql.js": "^1.6.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.0.0"
+  }
+}
