@@ -1,5 +1,5 @@
 import React from 'react';
-    import { useLocation, useNavigate } from 'react-router-dom';
+    import { useLocation, useNavigate, Link } from 'react-router-dom';
     import '../App.css';
     import { motion } from 'framer-motion';
     import { addBooking } from '../db';
@@ -29,7 +29,7 @@ import React from 'react';
         >
           <header>
             <nav>
-              <a href="/" className="logo">Taxi Stuttgart</a>
+            <h2><a href="/" className="logo text-warning">Taxi Stuttgart</a></h2>
             </nav>
           </header>
           <main>
@@ -54,6 +54,7 @@ import React from 'react';
           </main>
           <footer>
             <p>&copy; 2024 Taxi Stuttgart</p>
+            <Link to="/impressum" className="text-white ms-2">Impressum</Link>
           </footer>
         </motion.div>
       );

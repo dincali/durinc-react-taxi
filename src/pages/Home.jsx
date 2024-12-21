@@ -24,7 +24,7 @@ function Home() {
           <div className="container-fluid">
             <a className="navbar-brand text-white" href="#home">Taxi Stuttgart</a>
             <button className="navbar-toggler" type="button" onClick={toggleMenu}>
-              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon color-white"></span>
             </button>
             <div className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -124,6 +124,7 @@ function Home() {
       </main>
       <footer className="bg-dark text-white text-center py-3">
         <p>&copy; 2024 Taxi Stuttgart</p>
+        <Link to="/impressum" className="text-white ms-2">Impressum</Link>
         <Link to="/admin" className="text-white ms-2">Admin</Link>
       </footer>
     </div>

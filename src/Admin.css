@@ -1,88 +1,158 @@
+/* General styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+header {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  flex-shrink: 0;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .admin-login {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+}
 
-    .admin-login input {
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
+.admin-login input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
 
-    .admin-login button {
-      padding: 10px 15px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+.admin-login button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    .admin-container {
-      padding: 20px;
-      font-family: sans-serif;
-    }
+.admin-container {
+  width: 100%;
+  padding: 20px;
+  font-family: sans-serif;
+}
 
-    .admin-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
 
-    .admin-header button {
-      padding: 10px 15px;
-      background-color: #f44336;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+.admin-header h2 {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
 
-    .bookings-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+.admin-header button {
+  padding: 10px 15px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto;
+}
 
-    .booking-card {
-      background-color: #f9f9f9;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      width: 300px;
-    }
+.bookings-list {
+  padding-bottom: 60px; /* Add space for footer */
+}
 
-    .booking-card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
+.booking-card {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: auto;
+  margin-bottom: 10px;
+}
 
-    .booking-card p {
-      margin-bottom: 5px;
-    }
+.booking-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
 
-    .booking-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 10px;
-    }
+.booking-card p {
+  margin-bottom: 5px;
+}
 
-    .booking-actions button {
-      padding: 8px 12px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-      transition: background-color 0.3s ease;
-    }
+.booking-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
 
-    .booking-actions button:hover {
-      background-color: #0056b3;
-    }
+.booking-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.booking-actions button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-header h2 {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .admin-header button {
+    align-self: flex-end;
+    margin-left: 0;
+  }
+}

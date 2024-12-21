@@ -5,6 +5,7 @@ import React from 'react';
     import BookingTime from './pages/BookingTime';
     import BookingDetails from './pages/BookingDetails';
     import BookingConfirmation from './pages/BookingConfirmation';
+    import Impressum from './Impressum';
     import Admin from './Admin';
     import './App.css';
 
@@ -17,6 +18,7 @@ import React from 'react';
             <Route path="/booking/time" element={<BookingTime />} />
             <Route path="/booking/details" element={<BookingDetails />} />
             <Route path="/booking/confirmation" element={<BookingConfirmation />} />
+            <Route path="/impressum" element={<Impressum />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>
         </Router>

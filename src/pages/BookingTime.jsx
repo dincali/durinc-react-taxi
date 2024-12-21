@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-    import { useNavigate, useLocation } from 'react-router-dom';
+    import { useNavigate, useLocation, Link } from 'react-router-dom';
     import '../App.css';
     import { motion } from 'framer-motion';
 
@@ -26,7 +26,7 @@ import React, { useState } from 'react';
         >
           <header>
             <nav>
-              <a href="/" className="logo">Taxi Stuttgart</a>
+            <h2><a href="/" className="logo text-warning">Taxi Stuttgart</a></h2>
             </nav>
           </header>
           <main>
@@ -45,6 +45,7 @@ import React, { useState } from 'react';
           </main>
           <footer>
             <p>&copy; 2024 Taxi Stuttgart</p>
+            <Link to="/impressum" className="text-white ms-2">Impressum</Link>
           </footer>
         </motion.div>
       );
